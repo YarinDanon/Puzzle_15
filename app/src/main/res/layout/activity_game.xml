@@ -17,7 +17,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
             <TextView
@@ -25,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:gravity="bottom|left"
                 android:text="Moves:" />
 
             <TextView
@@ -39,170 +41,271 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E91E63"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#000000"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txvGT1ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="1" />
+                    android:padding="15px"
+                    android:text="1"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT2ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="2" />
+                    android:padding="15px"
+                    android:text="2"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT3ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="3" />
+                    android:padding="15px"
+                    android:text="3"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT4ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginRight="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="4" />
+                    android:padding="15px"
+                    android:text="4"
+                    app:autoSizeTextType="uniform" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txvGT5ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="5"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT6ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="6"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT7ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="7"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT8ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginRight="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="8"
+                    app:autoSizeTextType="uniform" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txvGT9ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:autoText="false"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="9"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT10ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:autoText="false"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="10"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT11ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="11"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT12ID"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginRight="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="12"
+                    app:autoSizeTextType="uniform" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txvGT13ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginBottom="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="13"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT14ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginBottom="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="14"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT15ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginBottom="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    android:text="15"
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
                     android:id="@+id/txvGT0ID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_marginRight="5px"
+                    android:layout_marginBottom="5px"
                     android:layout_weight="1"
+                    android:background="#D8B785"
                     android:gravity="center"
-                    android:text="TextView" />
+                    android:padding="15px"
+                    app:autoSizeTextType="uniform" />
             </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnSNGID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Start New Game" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSNGID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Start New Game" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

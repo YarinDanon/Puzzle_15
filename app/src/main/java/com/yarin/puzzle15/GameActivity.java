@@ -4,6 +4,7 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +17,19 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnStartNewGame;
     private GameBoard gameBoard;
-
     private TextView[] gameTable = new TextView[16];
+    private TextView txvMoves;
+    private int countMoves = 0;
+    private TextView txvTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        gameBoard = new GameBoard();
+
+        setGameBoardClickListener(); // set click listener for 16 text views on the board
+
+        gameBoard = new GameBoard(gameTable);
         gameBoard.resetBoard();
 
         // start new game Button
@@ -30,8 +37,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         btnStartNewGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 gameBoard.resetBoard();
+                setMoves(0);
             }
         });
+
+        txvMoves = (TextView)findViewById(R.id.txvMovesID);
+        txvTime = (TextView)findViewById(R.id.txvTimeID);
+        
     }
 
     @Override
@@ -39,7 +51,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         //Move
         String temp = getResources().getResourceName(v.getId()); // get the id name
 
-        // cat the index
+        // cat the index from the id
         temp = temp.replaceAll("com.yarin.puzzle15:id/txvGT","");
         temp = temp.replaceAll("ID","");
         int result = gameBoard.Move(parseInt(temp));
@@ -48,7 +60,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("win","win");
                 break;
             case 0:
-                Log.d("moves","Moves ++");
+                setMoves(countMoves+1);
                 break;
         }
     }
@@ -56,31 +68,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onStart(){
         super.onStart();
-        setSizeAndStyle();
+        //setSizeAndStyle();
     }
 
-    private void setSizeAndStyle(){
-        for(int i = 1 ; i < gameTable.length ; i++){
+    private void setGameBoardClickListener(){
+        for(int i = 0 ; i < gameTable.length ; i++){
             String id = "txvGT" + i + "ID";
             gameTable[i] = (TextView)findViewById(getResources().getIdentifier(id, "id", getPackageName()));
-            //gameTable[i].measure(0, 0);
-            //int h = gameTable[i].getMeasuredWidth();
-            gameTable[i].setText(i + "");
-            gameTable[i].setHeight(150);
-            gameTable[i].setBackgroundColor(-16711681);
-            gameTable[i].setTextColor(-16777216);
-            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)gameTable[i].getLayoutParams();
-            params.setMargins(5, 5, 5, 5);
-            gameTable[i].setLayoutParams(params);
-            //Log.d("size",h + "");
             gameTable[i].setOnClickListener(this);
         }
-        gameTable[0] = (TextView)findViewById(R.id.txvGT0ID);
-        gameTable[0].setOnClickListener(this);
-        gameTable[0].setText("");
-        gameTable[0].setHeight(150);
-
     }
 
+    private void  setMoves(int num){
+        String s = "Moves: ";
+        if(num > 99)
+            s+= "0";
+        else if (num > 9)
+            s+= "00";
+        else
+            s+= "000";
+        txvMoves.setText(s + num);
+        countMoves = num;
+    }
 
 }
