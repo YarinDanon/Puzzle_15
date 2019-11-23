@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -16,7 +17,9 @@
             android:id="@+id/txvWelcomeID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to Game of Fifteen" />
+            android:padding="50px"
+            android:text="Welcome to Game of Fifteen"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imgWelcomeID"
@@ -28,7 +31,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_margin="50px"
             android:orientation="horizontal">
 
             <ImageView
@@ -36,7 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|right"
-                android:layout_weight="1"
                 android:foregroundGravity="right"
                 app:srcCompat="@drawable/musicalnotes" />
 
@@ -44,10 +46,13 @@
                 android:id="@+id/swtMusicID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:text="Music" />
+                android:layout_gravity="left|center_vertical"
+                android:checked="false"
+                android:gravity="right|center_vertical"
+                android:switchTextAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Music"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:checked="false" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -57,12 +62,12 @@
 
             <Button
                 android:id="@+id/btnStartGameID"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="50px"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="START GAME" />
+                android:layout_gravity="center_horizontal"
+                android:text="Start Play"
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

@@ -3,6 +3,7 @@ package com.yarin.puzzle15;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static java.lang.Integer.*;
 
@@ -21,6 +23,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private TextView txvMoves;
     private int countMoves = 0;
     private TextView txvTime;
+    private long timeStart;
+    private boolean musicOn;
+    private MediaPlayer mp;
+    private Boolean isPause;
+    private Stoper Time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +44,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         btnStartNewGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 gameBoard.resetBoard();
+                txvTime.setText("Time: 00:00");
                 setMoves(0);
+                Time.reset();
+                Time.start();
+                for(int i = 0 ; i < gameTable.length ; i++)
+                    gameTable[i].setClickable(true);
             }
         });
 
         txvMoves = (TextView)findViewById(R.id.txvMovesID);
+        setMoves(0);
+
         txvTime = (TextView)findViewById(R.id.txvTimeID);
-        
+        //setTime();
+        //Time.start();
+        Time = new Stoper(txvTime);
+        Time.start();
+
+        musicOn = getIntent().getExtras().getBoolean("musicOn");
+        mp = MediaPlayer.create(this,R.raw.music);
+        mp.setLooping(true);
     }
 
     @Override
@@ -57,7 +78,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         int result = gameBoard.Move(parseInt(temp));
         switch (result){
             case 1:
-                Log.d("win","win");
+                winHandle();
                 break;
             case 0:
                 setMoves(countMoves+1);
@@ -66,10 +87,29 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onStart(){
-        super.onStart();
-        //setSizeAndStyle();
+    public void onDestroy() {
+        super.onDestroy();
+        mp.stop();
+        Time.pause();
     }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        mp.pause();
+        Time.pause();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(musicOn)
+            mp.start();
+        Time.start();
+
+    }
+
+
 
     private void setGameBoardClickListener(){
         for(int i = 0 ; i < gameTable.length ; i++){
@@ -89,6 +129,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             s+= "000";
         txvMoves.setText(s + num);
         countMoves = num;
+    }
+
+    private void winHandle(){
+        setMoves(countMoves+1);
+        Time.pause();
+        Toast.makeText(this, "Game Over - Puzzle Solved!", Toast.LENGTH_LONG).show();
+        for(int i = 0 ; i < gameTable.length ; i++)
+            gameTable[i].setClickable(false);
     }
 
 }

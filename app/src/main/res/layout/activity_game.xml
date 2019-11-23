@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="25px"
+        android:padding="25dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="61dp">
 
@@ -28,18 +28,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="bottom|left"
-                android:text="Moves:" />
+                android:paddingLeft="15px"
+                android:paddingBottom="30px"
+                android:text="Moves: 0000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txvTimeID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:autoText="false"
                 android:gravity="right"
-                android:text="Time:" />
+                android:paddingRight="15px"
+                android:paddingBottom="30px"
+                android:text="Time: 00:00"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/lytGameBordID"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -296,15 +304,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="30px"
             android:layout_weight="1.8"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnSNGID"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Start New Game" />
+                android:text="Start New Game"
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

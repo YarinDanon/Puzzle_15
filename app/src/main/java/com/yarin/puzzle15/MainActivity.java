@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
         btnStartGame = (Button) findViewById(R.id.btnStartGameID);
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                gameActiviti.putExtra("musicOn",musicOn);
                 startActivity(gameActiviti);
             }
         });
 
         //  == Music Switch ==
         mp = MediaPlayer.create(this,R.raw.music);
+        mp.setLooping(true);
         swtMusic = (Switch) findViewById(R.id.swtMusicID);
         // read music preferences from memory
         sp = getSharedPreferences("musicPref",MODE_PRIVATE);
         musicOn = sp.getBoolean("musicOn",false);
         swtMusic.setChecked(musicOn);
-        if(musicOn)
-            mp.start();
         final SharedPreferences.Editor editor = sp.edit();
         // listener to music switch
         swtMusic.setOnClickListener(new View.OnClickListener() {
@@ -55,10 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 if(swtMusic.isChecked()) {
                     mp.start();
                     editor.putBoolean("musicOn",true);
+                    musicOn = true;
                 }
                 else {
                     mp.pause();
                     editor.putBoolean("musicOn",false);
+                    musicOn = false;
                 }
                 editor.commit();
             }
@@ -66,12 +71,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp.stop();
+    }
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d("paumain","pause");
+        mp.pause();
+    }
     @Override
     public void onResume(){
         super.onResume();
-
-
+        Log.d("resume","resume");
+        if(musicOn)
+            mp.start();
     }
 
     // Action Bar
