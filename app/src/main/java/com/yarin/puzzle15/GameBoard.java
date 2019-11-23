@@ -8,6 +8,16 @@ import android.widget.TextView;
 public class GameBoard {
 
 
+    private TextView[] gameBoard;
+
+    GameBoard(TextView[] gameBoard){
+        this.gameBoard = gameBoard;
+    }
+
+
+
+
+
     public void resetBoard()
     {
         int[] board = randomBoard();
@@ -19,27 +29,279 @@ public class GameBoard {
         }
         System.out.println("GOOD: " + Arrays.toString(board));
 
+        for(int i = 1 ; i < 16 ; i++)
+        {
+            if(board[i-1] == 0)
+            {
+                gameBoard[i].setText("");
+                continue;
+            }
+            String str = Integer.toString(board[i-1]);
+            gameBoard[i].setText(str);
+        }
 
-
-
-        //Log.d("resetBoard","resetBoard");
-
+        if(board[15] == 0)
+        {
+            gameBoard[0].setText("");
+        }
+        else {
+            String s = Integer.toString(board[15]);
+            gameBoard[0].setText(s);
+        }
 
     }
 
 
     public int Move(int indexClick)
     {
+        CharSequence clicked;
+        clicked = gameBoard[indexClick].getText();
+        if( (6 <= indexClick && indexClick <= 7) || (10 <= indexClick && indexClick <= 11) )
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick - 1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick - 1].setText(clicked);
+            }
+            else if(gameBoard[indexClick + 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick + 4].setText(clicked);
+            }
+            else if(gameBoard[indexClick - 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick - 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+        if(indexClick == 2 || indexClick == 3)
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick-1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-1].setText(clicked);
+            }
+            else if(gameBoard[indexClick + 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick + 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+        if(indexClick == 5 || indexClick == 9)
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick+4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick+4].setText(clicked);
+            }
+            else if(gameBoard[indexClick-4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        if(indexClick == 8 )
+        {
+            if(gameBoard[indexClick-1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-1].setText(clicked);
+            }
+            else if(gameBoard[indexClick+4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick+4].setText(clicked);
+            }
+            else if(gameBoard[indexClick-4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        if(indexClick == 12 )
+        {
+            if(gameBoard[indexClick-1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-1].setText(clicked);
+            }
+            else if(gameBoard[indexClick-12 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-12].setText(clicked);
+            }
+            else if(gameBoard[indexClick-4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        if(indexClick == 14)
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick-1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");
+                gameBoard[indexClick-1].setText(clicked);
+            }
+            else if(gameBoard[indexClick-4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");
+                gameBoard[indexClick-4].setText(clicked);
+            }
+            else{
+                return -1;
+            }
+        }
+        else if(indexClick == 15)
+        {
+            if(gameBoard[indexClick-15 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick-15].setText(clicked);
+            }
+            else if(gameBoard[indexClick - 1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick - 1].setText(clicked);
+            }
+            else if(gameBoard[indexClick - 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick - 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        else if(indexClick == 1)
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick + 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick + 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        else if(indexClick == 4)
+        {
+            if(gameBoard[indexClick -1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick -1].setText(clicked);
+            }
+            else if(gameBoard[indexClick + 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick + 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        else if(indexClick == 13)
+        {
+            if(gameBoard[indexClick +1 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick +1].setText(clicked);
+            }
+            else if(gameBoard[indexClick - 4 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick - 4].setText(clicked);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        else if(indexClick == 0)
+        {
+            if(gameBoard[indexClick +15 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick+15].setText(clicked);
+            }
+            else if(gameBoard[indexClick+12 ].getText() == "")
+            {
+                gameBoard[indexClick].setText("");;
+                gameBoard[indexClick + 12].setText(clicked);
+            }
+            else {
+                return -1;
+            }
+
+        }
+
 
         // if win return 1
         //if move ok return 0
 
         // if move not legal return -1
-        Log.d("indexClick",indexClick + "");
 
 
 
-        return 1;
+        return winChecker();
     }
 
     private int[] randomBoard()
@@ -92,5 +354,31 @@ public class GameBoard {
         } else { // odd grid
             return parity % 2 == 0;
         }
+    }
+
+    private int winChecker()
+    {
+        for(int i = 1 ; i < 16 ; i++)
+        {
+            if(gameBoard[i].getText() ==  "")
+            {
+                return 0;
+            }
+            else
+            {
+                int number = Integer.parseInt((String) gameBoard[i].getText());
+
+                if(number != i)
+                {
+                    return 0;
+                }
+            }
+        }
+        if(gameBoard[0].getText() != "")
+        {
+            return 0;
+        }
+
+        return 1;
     }
 }
