@@ -23,12 +23,10 @@ public class GameBoard {
         int[] board = randomBoard();
         while(!isSolvable(board))
         {
-            System.out.println("invalid: " + Arrays.toString(board));
             board = randomBoard();
 
         }
-        System.out.println("GOOD: " + Arrays.toString(board));
-
+        
         for(int i = 1 ; i < 16 ; i++)
         {
             if(board[i-1] == 0)

@@ -23,9 +23,10 @@
 
         <ImageView
             android:id="@+id/imgWelcomeID"
-            android:layout_width="259dp"
+            android:layout_width="match_parent"
             android:layout_height="248dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             app:srcCompat="@drawable/welcome" />
 
         <LinearLayout
